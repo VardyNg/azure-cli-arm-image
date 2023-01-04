@@ -1,0 +1,1 @@
+This repo contains the Dockerfile and instruction that produced vardyng/azure-cli:latest image.
