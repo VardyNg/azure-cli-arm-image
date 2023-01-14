@@ -8,13 +8,12 @@ docker buildx create --name mybuilder mybuilder
 docker buildx use mybuilder
 ```
 ```sh
-docker buildx build \
-  --load \
-  --platform linux/arm64/v8 \
-  -t vardyng/azure-cli:latest .
+TAG=latest
+IMAGE=vardyng/azure-cli
 ```
-
-### Push image to Docker Hub
 ```sh
-docker push vardyng/azure-cli:latest
+docker buildx build \
+--push \
+--platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
+--tag $IMAGE:$TAG .
 ```
